@@ -123,7 +123,7 @@ header('Cache-Control: no-store');
           <div class="terms-quick-summary" aria-label="Quick summary">
             <h3>Quick summary</h3>
             <ul class="terms-facts">
-              <li><span>Guests</span><strong>2&ndash;10</strong></li>
+              <li><span>Guests</span><strong>2&ndash;20</strong></li>
               <li><span>Book ahead</span><strong>1+ day</strong></li>
               <li><span>Table held</span><strong>15 min</strong></li>
               <li><span>Free cancel</span><strong>24 h before</strong></li>

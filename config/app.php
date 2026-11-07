@@ -25,11 +25,19 @@ return [
     // Later than that, they must contact the cafe (staff decide). Enforced in includes/reservations.php.
     'cancel_hours_before' => 24,
     'branches' => [
-        // first and last bookable hour (last = 1 hour before closing)
-        'calamba' => ['name' => 'Calamba', 'first_hour' => 10, 'last_hour' => 21],
-        'cabuyao' => ['name' => 'Cabuyao', 'first_hour' => 9,  'last_hour' => 20],
+    'calamba' => [
+        'name' => 'Calamba',
+        'first_hour' => 10,
+        'last_hour' => 21,
+        'capacity' => 20
     ],
-
+    'cabuyao' => [
+        'name' => 'Cabuyao',
+        'first_hour' => 9,
+        'last_hour' => 20,
+        'capacity' => 30
+    ],
+],
     // Payment proof upload rules
     'require_proof'   => true,
     'max_proof_bytes' => 3 * 1024 * 1024,

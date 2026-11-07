@@ -185,8 +185,8 @@ function checkValues(values) {
     errors.guests = 'Please enter the number of guests.';
   } else if (Number.isInteger(guests) === false) {
     errors.guests = 'Number of guests must be a whole number.';
-  } else if (guests < 2 || guests > 10) {
-    errors.guests = 'Online reservations are for 2 to 10 guests. For larger groups, please call or message the cafe.';
+  } else if (guests < 2 || guests > 20) {
+    errors.guests = 'Online reservations are for 2 to 20 guests. For larger groups, please call or message the cafe.';
   }
   // Dates like 2026-10-24 can be compared with < and >
   if (values.reservation_date === '') {

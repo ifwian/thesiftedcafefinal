@@ -244,7 +244,9 @@ function create_reservation(int $userId, array $v, array $pay, ?array $proof): a
     try {
         $pdo->beginTransaction();
         $used = slot_guest_total($pdo, $v['branch'], $v['reservation_date'], $v['reservation_time']);
-        if ($used + $v['guests'] > cfg('capacity_per_slot')) {
+        $capacity = cfg('branches')[$v['branch']]['capacity'];
+
+        if ($used + $v['guests'] > $capacity) {
             $pdo->rollBack();
             if ($target) { @unlink($target); }
             return ['ok' => false, 'full' => true, 'errors' => ['reservation_time' => 'Sorry, that time is fully booked for this branch. Please choose another time or date.']];
@@ -514,7 +516,8 @@ function slot_availability(string $branch, string $date): array
     $slots = [];
     for ($h = $b['first_hour']; $h <= $b['last_hour']; $h++) {
         $key = str_pad((string) $h, 2, '0', STR_PAD_LEFT) . ':00';
-        $slots[$key] = max(0, cfg('capacity_per_slot') - ($taken[$key] ?? 0));
+        $capacity = cfg('branches')[$branch]['capacity'];
+        $slots[$key] = max(0, $capacity - ($taken[$key] ?? 0));
     }
-    return ['capacity' => cfg('capacity_per_slot'), 'seats_left' => $slots];
+    return ['capacity' => $capacity, 'seats_left' => $slots];
 }
