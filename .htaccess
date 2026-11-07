@@ -1,0 +1,8 @@
+# Apache / XAMPP: keeps private folders and files from being opened in the browser.
+Options -Indexes
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^(config|includes|database|storage)(/|$) - [F,L]
+RewriteRule (^|/)\. - [F,L]
+RewriteRule \.(md|sql|log)$ - [F,L]
+</IfModule>

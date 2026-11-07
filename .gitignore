@@ -1,0 +1,13 @@
+# Uploaded payment proofs are customers' private data: never push them to GitHub.
+storage/proofs/*
+!storage/proofs/.gitkeep
+# Logs
+storage/logs/*
+!storage/logs/.gitkeep
+# Your own database settings (copy of config/database.local.example.php)
+config/database.local.php
+# Editor / system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

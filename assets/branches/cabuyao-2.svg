@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Photo placeholder">
+<defs><pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="28" height="28" fill="#efe3cc"/><rect width="2" height="28" fill="#e3d3b4"/></pattern></defs>
+<rect width="1200" height="800" fill="url(#p)"/>
+<rect x="1.5" y="1.5" width="1197" height="797" fill="none" stroke="#b9a37d" stroke-width="3" stroke-dasharray="14 10"/>
+<g transform="translate(600.0,400.0)" fill="none" stroke="#7a5a3f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="-44" y="-30" width="88" height="62" rx="10"/><circle cx="0" cy="2" r="17"/><path d="M-18 -30l7-12h22l7 12"/></g>
+<g font-family="Georgia,serif" text-anchor="middle" fill="#5b3a29"><text x="600.0" y="478.0" font-size="33" font-weight="700">PHOTO PLACEHOLDER</text>
+<text x="600.0" y="522.0" font-size="25">Cabuyao branch &#183; photo 2 &#183; 3:2 landscape</text>
+<text x="600.0" y="566.0" font-size="22" fill="#7a6a58">Add cabuyao-2.jpg to assets/branches/ to replace</text></g></svg>

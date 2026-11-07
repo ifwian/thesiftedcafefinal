@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visit us | The Sifted Cafe</title>
+  <meta name="description" content="Addresses, opening hours, contact details and a map of The Sifted Cafe in Calamba and Cabuyao.">
+  <meta name="theme-color" content="#f7efdd">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.className += " js";</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="inner">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="The Sifted Cafe, home">
+        <img src="assets/logo-wordmark.png" alt="the sifted" width="700" height="186">
+        <span class="brand-tag">cafe &amp; bakery</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="visually-hidden">Menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="assets/the-sifted-cafe-menu.pdf" target="_blank" rel="noopener">Menu<span class="visually-hidden"> (PDF, opens in a new tab)</span></a></li><li><a href="about.html">About</a></li><li><a href="visit.html" class="is-current" aria-current="page">Visit us</a></li></ul>
+        <div class="nav-account">
+          <a class="btn btn-primary btn-nav nav-guest" href="login.html">Log in</a>
+          <a class="btn btn-nav-ghost nav-member" href="account.php" hidden>My account</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <span class="eyebrow eyebrow-rule">Find us</span>
+        <h1 id="page-title">Visit us</h1>
+        <p class="page-hero-lead">Two doors in Laguna, open every day. Choose a branch to see it on the map.</p>
+      </div>
+    </section>
+
+    <section class="section visit-locate" aria-labelledby="visit-title">
+      <div class="container locate-grid">
+        <div class="locate-list">
+          <h2 id="visit-title" class="visually-hidden">Branches</h2>
+        <article id="calamba-info" class="loc-card" data-branch="calamba">
+          <p class="loc-no" aria-hidden="true">01</p>
+          <h3>Calamba</h3>
+          <dl class="loc-details">
+            <div><dt>Address</dt><dd><address>Unit 2, Pabs2men Building, Chipeco Ave, Brgy.&nbsp;3,<br>Calamba, 4027 Laguna, Philippines</address></dd></div>
+            <div><dt>Hours</dt><dd>Every day, 10:00 AM &ndash; 10:00 PM</dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+639163907048">0916 390 7048</a></dd></div>
+          </dl>
+          <div class="loc-actions">
+            <button type="button" class="link-arrow link-button" data-show="calamba">Show on map <span aria-hidden="true">&rarr;</span></button>
+            <a class="link-arrow" data-directions="calamba" href="#" target="_blank" rel="noopener">Get directions <span aria-hidden="true">&nearr;</span><span class="visually-hidden"> (opens Google Maps in a new tab)</span></a>
+          </div>
+        </article>
+        <article id="cabuyao-info" class="loc-card" data-branch="cabuyao">
+          <p class="loc-no" aria-hidden="true">02</p>
+          <h3>Cabuyao</h3>
+          <dl class="loc-details">
+            <div><dt>Address</dt><dd><address>2nd Floor, Southwalk Commercial Space,<br>South Point, Pulo, Cabuyao, Laguna 4025</address></dd></div>
+            <div><dt>Hours</dt><dd>Every day, 9:00 AM &ndash; 9:00 PM</dd></div>
+            <div><dt>Phone</dt><dd><a href="tel:+639163907048">0916 390 7048</a></dd></div>
+          </dl>
+          <div class="loc-actions">
+            <button type="button" class="link-arrow link-button" data-show="cabuyao">Show on map <span aria-hidden="true">&rarr;</span></button>
+            <a class="link-arrow" data-directions="cabuyao" href="#" target="_blank" rel="noopener">Get directions <span aria-hidden="true">&nearr;</span><span class="visually-hidden"> (opens Google Maps in a new tab)</span></a>
+          </div>
+        </article>
+        </div>
+        <div class="locate-map">
+          <div class="map-tabs" role="group" aria-label="Choose a pin"></div>
+          <div class="map-frame" id="map" role="region" aria-label="Map of The Sifted Cafe branches"></div>
+          <p class="map-caption" id="map-caption" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt contact-band" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow eyebrow-rule">Get in touch</span>
+          <h2 id="contact-title">Say hello.</h2>
+        </div>
+        <ul class="contact-list">
+          <li><span>Facebook</span><a href="https://www.facebook.com/TheSiftedCafe" target="_blank" rel="noopener">facebook.com/TheSiftedCafe<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li><span>Phone</span><a href="tel:+639163907048">0916 390 7048</a></li>
+          <li><span>Instagram</span><a href="https://www.instagram.com/thesiftedcafe" target="_blank" rel="noopener">@thesiftedcafe<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          <li><span>Email</span><a href="mailto:thesiftedcafe@gmail.com">thesiftedcafe@gmail.com</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer on-dark">
+    <div class="container footer-main">
+      <div class="footer-brandcol">
+        <p class="footer-brand">the sifted <span>cafe &amp; bakery</span></p>
+        <p class="footer-small">Calamba &middot; Cabuyao, Laguna</p>
+        <p class="footer-small footer-contact"><a href="tel:+639163907048">0916 390 7048</a> &middot; <a href="mailto:thesiftedcafe@gmail.com">thesiftedcafe@gmail.com</a></p>
+        <p class="footer-social">
+          <a href="https://www.facebook.com/TheSiftedCafe" target="_blank" rel="noopener" aria-label="The Sifted Cafe on Facebook (opens in a new tab)"><svg class="icon icon-fill" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z"/></svg></a>
+          <a href="https://www.instagram.com/thesiftedcafe" target="_blank" rel="noopener" aria-label="The Sifted Cafe on Instagram (opens in a new tab)"><svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        </p>
+      </div>
+      <nav class="footer-links" aria-label="Footer">
+        <h2 class="footer-heading">Explore</h2>
+        <ul>
+          <li><a href="about.html">About us</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="visit.html">Visit us</a></li>
+          <li><a href="login.html">Log in</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> The Sifted Cafe. A student project.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/branches.js"></script>
+  <script src="js/visit-map.js"></script>
+</body>
+</html>
