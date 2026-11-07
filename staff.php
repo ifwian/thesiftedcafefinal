@@ -183,7 +183,7 @@ if (isset($_GET['modal'])) {
               </select></label>
               <label>Date <input type="date" name="date" value="<?= e($filters['date']) ?>"></label>
               <button type="submit" class="btn btn-outline btn-small">Apply</button>
-              <a class="btn btn-outline btn-small" href="staff.php?<?= e(http_build_query(array_filter(['view' => $isArchive ? 'archive' : '', 'date' => $today]))) ?>">Today</a>
+              <a class="btn btn-view btn-small" href="staff.php?<?= e(http_build_query(array_filter(['view' => $isArchive ? 'archive' : '', 'date' => $today]))) ?>">Today</a>
               <a class="btn btn-ghost btn-small" href="staff.php<?= $isArchive ? '?view=archive' : '' ?>">Clear</a>
             </form>
 
@@ -218,7 +218,7 @@ if (isset($_GET['modal'])) {
                     <td data-label="Status"><span class="badge badge-<?= e($r['status']) ?>"><?= e(STATUS_TEXT[$r['status']] ?? $r['status']) ?></span></td>
                     <?php if ($isArchive): ?><td data-label="Archived"><?= e(date_short((string) $r['archived_at'])) ?><span class="cell-sub"><?= e(time12(substr((string) $r['archived_at'], 11, 5))) ?></span></td><?php endif; ?>
                     <td data-label="Actions"><div class="row-actions">
-                      <a class="btn btn-outline btn-small" href="staff.php?<?= e(back_query(['id' => $r['id']])) ?>" data-view="<?= (int) $r['id'] ?>">View<span class="visually-hidden"> <?= e($r['reference']) ?></span></a>
+                      <a class="btn btn-view btn-small" href="staff.php?<?= e(back_query(['id' => $r['id']])) ?>" data-view="<?= (int) $r['id'] ?>">View<span class="visually-hidden"> <?= e($r['reference']) ?></span></a>
                       <?php if ($isArchive): ?>
                       <button type="button" class="btn btn-primary btn-small" data-act="restore" data-id="<?= (int) $r['id'] ?>" data-ref="<?= e($r['reference']) ?>" data-return="<?= e(back_query()) ?>">Restore<span class="visually-hidden"> <?= e($r['reference']) ?></span></button>
                       <button type="button" class="btn btn-danger btn-small" data-act="delete" data-id="<?= (int) $r['id'] ?>" data-ref="<?= e($r['reference']) ?>" data-return="<?= e(back_query()) ?>">Delete<span class="visually-hidden"> <?= e($r['reference']) ?></span></button>
@@ -230,7 +230,7 @@ if (isset($_GET['modal'])) {
                       <button type="button" class="btn btn-warn btn-small" data-act="cancelled" data-id="<?= (int) $r['id'] ?>" data-ref="<?= e($r['reference']) ?>" data-return="<?= e(back_query()) ?>">Cancel<span class="visually-hidden"> <?= e($r['reference']) ?></span></button>
                       <?php endif; ?>
                       <?php if (in_array($r['status'], ARCHIVABLE, true)): ?>
-                      <button type="button" class="btn btn-outline btn-small" data-act="archive" data-id="<?= (int) $r['id'] ?>" data-ref="<?= e($r['reference']) ?>" data-return="<?= e(back_query()) ?>">Archive<span class="visually-hidden"> <?= e($r['reference']) ?></span></button>
+                      <button type="button" class="btn btn-archive btn-small" data-act="archive" data-id="<?= (int) $r['id'] ?>" data-ref="<?= e($r['reference']) ?>" data-return="<?= e(back_query()) ?>">Archive<span class="visually-hidden"> <?= e($r['reference']) ?></span></button>
                       <?php endif; ?>
                       <?php endif; ?>
                     </div></td>

@@ -79,7 +79,7 @@
               <button type="button" class="btn btn-primary btn-small" data-act="restore" data-id="<?= (int) $s['id'] ?>" data-ref="<?= e($s['reference']) ?>" data-return="<?= e($retList) ?>">Restore to active list</button>
               <button type="button" class="btn btn-danger btn-small" data-act="delete" data-id="<?= (int) $s['id'] ?>" data-ref="<?= e($s['reference']) ?>" data-return="<?= e($retList) ?>">Delete permanently</button>
               <?php elseif (in_array($s['status'], ARCHIVABLE, true)): ?>
-              <button type="button" class="btn btn-outline btn-small" data-act="archive" data-id="<?= (int) $s['id'] ?>" data-ref="<?= e($s['reference']) ?>" data-return="<?= e($retList) ?>">Archive</button>
+              <button type="button" class="btn btn-archive btn-small" data-act="archive" data-id="<?= (int) $s['id'] ?>" data-ref="<?= e($s['reference']) ?>" data-return="<?= e($retList) ?>">Archive</button>
               <?php endif; ?>
             </div>
             <?php if (!$isArch && $s['status'] === 'pending' && $s['payment_status'] !== 'verified'): ?><p class="cell-sub">Verify the payment first. The Confirm button appears once the payment is verified.</p><?php endif; ?>

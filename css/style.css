@@ -173,10 +173,12 @@ em { font-style: italic; }
 .btn-verify { background: linear-gradient(180deg, #84583b 0%, #5b3a29 52%, #43281b 100%); border-color: #36200f; color: #fff; box-shadow: 0 4px 10px rgba(67, 40, 27, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
 .btn-warn { background: linear-gradient(180deg, #c07214 0%, #a85d0b 55%, #894a05 100%); border-color: #703c04; color: #fff; box-shadow: 0 4px 10px rgba(137, 74, 5, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
 .btn-danger { background: linear-gradient(180deg, #d44532 0%, #b92d1d 55%, #922013 100%); border-color: #73170d; color: #fff; box-shadow: 0 4px 10px rgba(146, 32, 19, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
-.btn-confirm:hover, .btn-verify:hover, .btn-warn:hover, .btn-danger:hover { color: #fff; transform: translateY(-1px); }
-.btn-confirm:active, .btn-verify:active, .btn-warn:active, .btn-danger:active { transform: translateY(1px) scale(0.985); }
+.btn-view { background: linear-gradient(180deg, #3f86c4 0%, #2a6aa3 55%, #1e5282 100%); border-color: #153e63; color: #fff; box-shadow: 0 4px 10px rgba(30, 82, 130, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+.btn-archive { background: linear-gradient(180deg, #7a6aa8 0%, #5f4f8c 55%, #4a3c70 100%); border-color: #383057; color: #fff; box-shadow: 0 4px 10px rgba(74, 60, 112, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+.btn-confirm:hover, .btn-verify:hover, .btn-warn:hover, .btn-danger:hover, .btn-view:hover, .btn-archive:hover { color: #fff; transform: translateY(-1px); }
+.btn-confirm:active, .btn-verify:active, .btn-warn:active, .btn-danger:active, .btn-view:active, .btn-archive:active { transform: translateY(1px) scale(0.985); }
 .btn-small { min-height: 36px; padding: 0 var(--sp-4); font-size: var(--fs-sm); box-shadow: none; }
-.btn-primary.btn-small, .btn-confirm.btn-small, .btn-verify.btn-small, .btn-warn.btn-small, .btn-danger.btn-small { box-shadow: 0 3px 8px rgba(67, 40, 27, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+.btn-primary.btn-small, .btn-confirm.btn-small, .btn-verify.btn-small, .btn-warn.btn-small, .btn-danger.btn-small, .btn-view.btn-small, .btn-archive.btn-small { box-shadow: 0 3px 8px rgba(67, 40, 27, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2); }
 .btn-nav { min-height: 40px; padding: 0 var(--sp-5); font-size: var(--fs-sm); }
 .btn-block { width: 100%; }
 .btn:disabled, .btn[aria-disabled="true"] { opacity: 0.5; cursor: not-allowed; transform: none; }
