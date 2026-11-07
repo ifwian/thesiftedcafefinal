@@ -37,6 +37,9 @@ input('date').min = dateToText(firstDay);
 input('date').max = dateToText(lastDay);
 
 // Opening hours: requests are every hour, from opening until 1 hour before closing.
+// Max guests per reservation = branch capacity (the server enforces the real limit)
+var BRANCH_MAX_GUESTS = { calamba: 20, cabuyao: 30 };
+function maxGuests() { return BRANCH_MAX_GUESTS[input('branch').value] || 30; }
 var BRANCH_HOURS = { calamba: { open: 10, close: 22 }, cabuyao: { open: 9, close: 21 } };
 var timeHint = document.getElementById('time-hint');
 
@@ -67,7 +70,10 @@ function updateTimeOptions() {
     '). Reserve at least 1 day ahead.';
   applyAvailability();
 }
-input('branch').addEventListener('change', function () { updateTimeOptions(); refreshAvailability(); });
+input('branch').addEventListener('change', function () {
+  input('guests').max = String(maxGuests());
+  updateTimeOptions(); refreshAvailability(); refreshQuote();
+});
 updateTimeOptions();
 
 // ---------------------------------------------------------------
@@ -118,12 +124,12 @@ async function refreshAvailability() {
 input('date').addEventListener('change', refreshAvailability);
 input('guests').addEventListener('input', applyAvailability);
 
-// Guests: the - and + buttons change the number (2 to 10)
+// Guests: the - and + buttons change the number (2 up to the branch limit)
 document.querySelectorAll('.stepper-btn').forEach(function (button) {
   button.addEventListener('click', function () {
     var field = input('guests');
     var next = (Number(field.value) || 2) + Number(button.dataset.step);
-    field.value = String(Math.min(10, Math.max(2, next)));
+    field.value = String(Math.min(maxGuests(), Math.max(2, next)));
     field.dispatchEvent(new Event('input', { bubbles: true }));
     field.dispatchEvent(new Event('change', { bubbles: true }));
   });
@@ -185,8 +191,8 @@ function checkValues(values) {
     errors.guests = 'Please enter the number of guests.';
   } else if (Number.isInteger(guests) === false) {
     errors.guests = 'Number of guests must be a whole number.';
-  } else if (guests < 2 || guests > 20) {
-    errors.guests = 'Online reservations are for 2 to 20 guests. For larger groups, please call or message the cafe.';
+  } else if (guests < 2 || guests > maxGuests()) {
+    errors.guests = 'Online reservations are for 2 to ' + maxGuests() + ' guests. For larger groups, please call or message the cafe.';
   }
   // Dates like 2026-10-24 can be compared with < and >
   if (values.reservation_date === '') {
@@ -292,8 +298,8 @@ var quote = null;   // the last answer from the server, or null
 async function refreshQuote() {
   var guests = Number(input('guests').value);
   quote = null;
-  if (Number.isInteger(guests) && guests >= 2 && guests <= 10) {
-    var result = await sendJson('POST', '/api/reservations/quote', { guests: guests });
+  if (Number.isInteger(guests) && guests >= 2 && guests <= maxGuests()) {
+    var result = await sendJson('POST', '/api/reservations/quote', { guests: guests, branch: input('branch').value });
     if (result.status === 401) {
       goToSignIn(result.data.code, 'account.php#reserve');
       return;

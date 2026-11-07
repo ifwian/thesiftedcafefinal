@@ -135,8 +135,9 @@ if ($method === 'POST' && $path === '/api/reservations/quote') {
     need_login($user);
     $d = request_data();
     $g = $d['guests'] ?? '';
-    if (!is_numeric($g) || (int) $g != $g || (int) $g < cfg('min_guests') || (int) $g > cfg('max_guests')) {
-        $msg = 'Online reservations are for ' . cfg('min_guests') . ' to ' . cfg('max_guests') . ' guests.';
+    $maxG = branch_max_guests((string) ($d['branch'] ?? ''));
+    if (!is_numeric($g) || (int) $g != $g || (int) $g < cfg('min_guests') || (int) $g > $maxG) {
+        $msg = 'Online reservations are for ' . cfg('min_guests') . ' to ' . $maxG . ' guests.';
         json_out(400, ['error' => $msg, 'errors' => ['guests' => $msg]]);
     }
     json_out(200, ['quote' => compute_amounts((int) $g)]);

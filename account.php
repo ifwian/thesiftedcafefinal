@@ -123,7 +123,7 @@ header('Cache-Control: no-store');
           <div class="terms-quick-summary" aria-label="Quick summary">
             <h3>Quick summary</h3>
             <ul class="terms-facts">
-              <li><span>Guests</span><strong>2&ndash;20</strong></li>
+              <li><span>Guests</span><strong>2&ndash;10</strong></li>
               <li><span>Book ahead</span><strong>1+ day</strong></li>
               <li><span>Table held</span><strong>15 min</strong></li>
               <li><span>Free cancel</span><strong>24 h before</strong></li>
@@ -176,7 +176,7 @@ header('Cache-Control: no-store');
                 </div>
                 <div class="field">
                   <label for="res-guests">Number of guests <span class="req" aria-hidden="true">*</span></label>
-                  <div class="stepper"><button type="button" class="stepper-btn" data-step="-1" aria-label="One guest less">&minus;</button><input id="res-guests" type="number" min="2" max="10" inputmode="numeric" value="2"><button type="button" class="stepper-btn" data-step="1" aria-label="One guest more">+</button></div>
+                  <div class="stepper"><button type="button" class="stepper-btn" data-step="-1" aria-label="One guest less">&minus;</button><input id="res-guests" type="number" min="2" max="30" inputmode="numeric" value="2"><button type="button" class="stepper-btn" data-step="1" aria-label="One guest more">+</button></div>
                   <p class="field-error" id="err-res-guests" aria-live="polite"></p>
                 </div>
                 <div class="field">

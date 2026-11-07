@@ -16,7 +16,6 @@ return [
 
     // From the branch manager's interview
     'min_guests'         => 2,
-    'max_guests'         => 10,
     'min_days_ahead'     => 1,          // at least 1 day notice
     'max_days_ahead'     => 60,         // PLACEHOLDER: the cafe left "how far ahead" blank
     'grace_minutes'      => 15,         // table is held this long after the reservation time (staff apply it)
@@ -24,7 +23,7 @@ return [
     // Later than that, they must contact the cafe (staff decide). Enforced in includes/reservations.php.
     'cancel_hours_before' => 24,
     'branches' => [
-        // first and last bookable hour (last = 1 hour before closing); capacity = max total guests per time slot for that branch
+        // first and last bookable hour (last = 1 hour before closing); capacity = max guests per time slot AND per online reservation for that branch
         'calamba' => ['name' => 'Calamba', 'first_hour' => 10, 'last_hour' => 21, 'capacity' => 20],
         'cabuyao' => ['name' => 'Cabuyao', 'first_hour' => 9,  'last_hour' => 20, 'capacity' => 30],
     ],

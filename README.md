@@ -105,7 +105,7 @@ Staff/owner login, logout and failed login; reservation created, confirmed, comp
 | `api/index.php` | The API the JavaScript talks to (register, login, reservations, owner data) |
 | `actions/` | `staff-process.php` handles the staff buttons, `logout.php` signs out |
 | `includes/` | Reusable PHP: `bootstrap.php` (start of every page), `functions.php` (login, roles, helpers), `reservations.php` (reservation and payment rules), `audit.php` (audit log writer), `owner.php` (read-only owner queries), `owner_ui.php`, `owner_detail.php`, `staff_detail.php` |
-| `config/` | `database.php` (connection) and `app.php` (rules such as guests 2–10, branch hours) |
+| `config/` | `database.php` (connection) and `app.php` (rules such as guests 2–20 Calamba / 2–30 Cabuyao, branch hours) |
 | `database/` | `thesifted_db.sql` — the **only** file you need. `migrations/` is optional and only for upgrading an old database (see `database/migrations/README.txt`) |
 | `js/`, `css/`, `assets/` | JavaScript, stylesheet, images |
 | `storage/` | Uploaded proofs and the error log (private; not in Git) |

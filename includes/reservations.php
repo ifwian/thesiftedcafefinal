@@ -59,8 +59,8 @@ function validate_reservation(array $d): array
     if (!filter_var($v['email'], FILTER_VALIDATE_EMAIL)) { $errors['email'] = 'Please enter a valid email address.'; }
     if (!isset($branches[$v['branch']])) { $errors['branch'] = 'Please choose a branch.'; }
 
-    if (!is_numeric($v['guests']) || (int) $v['guests'] != $v['guests'] || (int) $v['guests'] < cfg('min_guests') || (int) $v['guests'] > cfg('max_guests')) {
-        $errors['guests'] = 'Online reservations are for ' . cfg('min_guests') . ' to ' . cfg('max_guests') . ' guests. For larger groups, please call or message the cafe.';
+    if (!is_numeric($v['guests']) || (int) $v['guests'] != $v['guests'] || (int) $v['guests'] < cfg('min_guests') || (int) $v['guests'] > branch_max_guests($v['branch'])) {
+        $errors['guests'] = 'Online reservations are for ' . cfg('min_guests') . ' to ' . branch_max_guests($v['branch']) . ' guests. For larger groups, please call or message the cafe.';
     } else {
         $v['guests'] = (int) $v['guests'];
     }
@@ -213,6 +213,13 @@ function customer_cancel_reservation(int $userId, int $reservationId): string
 function branch_capacity(string $branch): int
 {
     return (int) (cfg('branches')[$branch]['capacity'] ?? 0);
+}
+
+/** Largest party allowed in one online reservation: equal to the branch's capacity. With no valid branch, the largest branch capacity. */
+function branch_max_guests(string $branch): int
+{
+    if (isset(cfg('branches')[$branch])) { return branch_capacity($branch); }
+    return (int) max(array_column(cfg('branches'), 'capacity'));
 }
 
 /** Guests already booked in a time slot (pending + confirmed reservations count). */
@@ -391,19 +398,28 @@ function staff_counts(): array
  *   confirmed -> completed | cancelled
  * completed and cancelled are final.
  */
-function allowed_next_statuses(string $status): array
+/**
+ * Where a reservation can go next. Realistic flow: pending -> (payment verified) -> confirmed -> completed.
+ * A pending reservation can only be confirmed once its payment has been verified by staff.
+ */
+function allowed_next_statuses(string $status, string $paymentStatus = ''): array
 {
-    return ['pending' => ['confirmed', 'cancelled'], 'confirmed' => ['completed', 'cancelled']][$status] ?? [];
+    if ($status === 'pending') { return $paymentStatus === 'verified' ? ['confirmed', 'cancelled'] : ['cancelled']; }
+    return ['confirmed' => ['completed', 'cancelled']][$status] ?? [];
 }
 
 function staff_set_status(int $reservationId, string $newStatus, ?array $actor = null): string
 {
     $pdo = db();
-    $stmt = $pdo->prepare('SELECT status FROM reservations WHERE id = ?');
+    $stmt = $pdo->prepare('SELECT r.status, (SELECT p.status FROM payments p WHERE p.reservation_id = r.id LIMIT 1) AS pay FROM reservations r WHERE r.id = ?');
     $stmt->execute([$reservationId]);
-    $current = $stmt->fetchColumn();
-    if ($current === false) { return 'That reservation was not found.'; }
-    if (!in_array($newStatus, allowed_next_statuses((string) $current), true)) {
+    $row = $stmt->fetch();
+    if (!$row) { return 'That reservation was not found.'; }
+    $current = $row['status'];
+    if ($newStatus === 'confirmed' && $current === 'pending' && $row['pay'] !== 'verified') {
+        return 'Verify the payment first. A reservation can only be confirmed after its payment is verified.';
+    }
+    if (!in_array($newStatus, allowed_next_statuses((string) $current, (string) $row['pay']), true)) {
         return 'A ' . $current . ' reservation cannot be changed to ' . $newStatus . '.';
     }
     $upd = $pdo->prepare('UPDATE reservations SET status = ?, updated_at = ? WHERE id = ? AND status = ?');
@@ -497,6 +513,11 @@ function staff_verify_payment(int $reservationId, int $staffId, ?array $actor = 
     $current = $stmt->fetchColumn();
     if ($current !== 'proof_submitted') {
         return 'Only a payment with an uploaded proof can be marked as verified.';
+    }
+    $rs = $pdo->prepare('SELECT status FROM reservations WHERE id = ?');
+    $rs->execute([$reservationId]);
+    if (!in_array($rs->fetchColumn(), ['pending', 'confirmed'], true)) {
+        return 'Payment can only be verified for a pending or confirmed reservation.';
     }
     $pdo->prepare("UPDATE payments SET status = 'verified', verified_by = ?, verified_at = ? WHERE reservation_id = ?")
         ->execute([$staffId, now_text(), $reservationId]);

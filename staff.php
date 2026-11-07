@@ -223,7 +223,7 @@ if (isset($_GET['modal'])) {
                       <button type="button" class="btn btn-primary btn-small" data-act="restore" data-id="<?= (int) $r['id'] ?>" data-ref="<?= e($r['reference']) ?>" data-return="<?= e(back_query()) ?>">Restore<span class="visually-hidden"> <?= e($r['reference']) ?></span></button>
                       <button type="button" class="btn btn-danger btn-small" data-act="delete" data-id="<?= (int) $r['id'] ?>" data-ref="<?= e($r['reference']) ?>" data-return="<?= e(back_query()) ?>">Delete<span class="visually-hidden"> <?= e($r['reference']) ?></span></button>
                       <?php else: ?>
-                      <?php $nx = allowed_next_statuses($r['status']); if (in_array('confirmed', $nx, true)): ?>
+                      <?php $nx = allowed_next_statuses($r['status'], (string) $r['payment_status']); if (in_array('confirmed', $nx, true)): ?>
                       <form method="post" action="actions/staff-process.php" onsubmit="return confirm('Confirm this reservation? The customer will see it as Confirmed.');"><input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>"><input type="hidden" name="id" value="<?= (int) $r['id'] ?>"><input type="hidden" name="return" value="<?= e(back_query()) ?>"><button type="submit" name="action" value="confirmed" class="btn btn-confirm btn-small">Confirm<span class="visually-hidden"> <?= e($r['reference']) ?></span></button></form>
                       <?php endif; ?>
                       <?php if (in_array('cancelled', $nx, true)): ?>

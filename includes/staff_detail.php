@@ -1,4 +1,4 @@
-<?php /** The details of ONE reservation ($s). Used inside the staff modal. */ $isArch = !empty($s['archived_at']); $next = $isArch ? [] : allowed_next_statuses($s['status']); ?>
+<?php /** The details of ONE reservation ($s). Used inside the staff modal. */ $isArch = !empty($s['archived_at']); $next = $isArch ? [] : allowed_next_statuses($s['status'], (string) $s['payment_status']); ?>
 <div class="st-detail-body">
             <div class="st-card-head">
               <h2 id="detail-title"><?= e($s['reference']) ?></h2>
@@ -69,7 +69,7 @@
               <?php if (in_array('completed', $next, true)): ?>
               <form method="post" action="actions/staff-process.php" onsubmit="return confirm('Mark this reservation as completed? This cannot be changed afterwards.');"><input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>"><input type="hidden" name="id" value="<?= (int) $s['id'] ?>"><input type="hidden" name="return" value="<?= e($ret) ?>"><button type="submit" name="action" value="completed" class="btn btn-primary btn-small">Mark completed</button></form>
               <?php endif; ?>
-              <?php if (!$isArch && $s['payment_status'] === 'proof_submitted'): ?>
+              <?php if (!$isArch && $s['payment_status'] === 'proof_submitted' && in_array($s['status'], ['pending', 'confirmed'], true)): ?>
               <form method="post" action="actions/staff-process.php" onsubmit="return confirm('Verify this payment? Please check the proof against the GCash records first.');"><input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>"><input type="hidden" name="id" value="<?= (int) $s['id'] ?>"><input type="hidden" name="return" value="<?= e($ret) ?>"><button type="submit" name="action" value="verify" class="btn btn-verify btn-small">Verify payment</button></form>
               <?php endif; ?>
               <?php if (in_array('cancelled', $next, true)): ?>
@@ -82,6 +82,7 @@
               <button type="button" class="btn btn-outline btn-small" data-act="archive" data-id="<?= (int) $s['id'] ?>" data-ref="<?= e($s['reference']) ?>" data-return="<?= e($retList) ?>">Archive</button>
               <?php endif; ?>
             </div>
+            <?php if (!$isArch && $s['status'] === 'pending' && $s['payment_status'] !== 'verified'): ?><p class="cell-sub">Verify the payment first. The Confirm button appears once the payment is verified.</p><?php endif; ?>
             <?php if ($isArch): ?><p class="cell-sub">This reservation is archived. Restore it to work on it again, or delete it permanently.</p>
             <?php elseif (!$next): ?><p class="cell-sub">This reservation is <?= e($s['status']) ?>, so its status can no longer be changed.</p><?php endif; ?>
           </div>

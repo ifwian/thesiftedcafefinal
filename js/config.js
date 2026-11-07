@@ -39,7 +39,7 @@ window.SIFTED_CONFIG = {
   policies: [
     { title: 'Confirmation and availability', items: [
       'Sending the form is a request, not a booking. Your table is reserved only when the status says Confirmed.',
-      'Online bookings are for 2 to 10 guests, 1 to 60 days ahead, on the hour. Calamba is open 10 AM to 10 PM and Cabuyao 9 AM to 9 PM. For larger groups, please call or message us.',
+      'Online bookings are for 2 to 20 guests at Calamba and 2 to 30 at Cabuyao, 1 to 60 days ahead, on the hour. Calamba is open 10 AM to 10 PM and Cabuyao 9 AM to 9 PM. For larger groups, please call or message us.',
       'A full time slot cannot be booked. If a request cannot be accommodated, staff may suggest another time or cancel it.',
       'Reservations cannot be edited. To change anything, cancel it in My account and send a new request.'
     ] },
