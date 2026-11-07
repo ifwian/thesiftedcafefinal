@@ -167,7 +167,7 @@ $icoNav = [
     $mix = owner_status_mix($from, $to);
     $branches = owner_branch_compare($from, $to);
     [$wd, $hrs] = owner_peaks($from, $to);
-    $col = ['pending' => 'var(--amber)', 'confirmed' => 'var(--green)', 'completed' => '#3a63b8', 'cancelled' => 'var(--red)'];
+    $col = ['pending' => 'var(--amber)', 'confirmed' => 'var(--green)', 'completed' => 'var(--blue-500)', 'cancelled' => 'var(--red)'];
     $byText = ['day' => 'day', 'week' => 'week', 'month' => 'month'][$by]; ?>
         <?= ow_period_bar('analytics', $days, $by, true) ?>
         <section class="st-card st-list" aria-labelledby="tr-h">
@@ -208,7 +208,7 @@ $icoNav = [
               $hl = array_map(fn($h) => date('ga', strtotime(sprintf('%02d:00', $h))), array_keys($hrs)); ?>
           <div class="ow-two">
             <div><h3 class="ow-h3">By day of the week</h3><?= ow_bar_chart(array_values($names), array_values($wd), 'Reservations by weekday', false, 'var(--green)') ?></div>
-            <div><h3 class="ow-h3">By hour of the day</h3><?= ow_bar_chart($hl, array_values($hrs), 'Reservations by hour', false, '#8a5226') ?></div>
+            <div><h3 class="ow-h3">By hour of the day</h3><?= ow_bar_chart($hl, array_values($hrs), 'Reservations by hour', false, 'var(--caramel-deep)') ?></div>
           </div>
           <?php endif; ?>
         </section>
