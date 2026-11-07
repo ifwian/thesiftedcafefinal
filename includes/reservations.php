@@ -209,6 +209,12 @@ function customer_cancel_reservation(int $userId, int $reservationId): string
     return '';
 }
 
+/** Max total guests per time slot for one branch (set per branch in config/app.php). */
+function branch_capacity(string $branch): int
+{
+    return (int) (cfg('branches')[$branch]['capacity'] ?? 0);
+}
+
 /** Guests already booked in a time slot (pending + confirmed reservations count). */
 function slot_guest_total(PDO $pdo, string $branch, string $date, string $time): int
 {
@@ -244,9 +250,7 @@ function create_reservation(int $userId, array $v, array $pay, ?array $proof): a
     try {
         $pdo->beginTransaction();
         $used = slot_guest_total($pdo, $v['branch'], $v['reservation_date'], $v['reservation_time']);
-        $capacity = cfg('branches')[$v['branch']]['capacity'];
-
-        if ($used + $v['guests'] > $capacity) {
+        if ($used + $v['guests'] > branch_capacity($v['branch'])) {
             $pdo->rollBack();
             if ($target) { @unlink($target); }
             return ['ok' => false, 'full' => true, 'errors' => ['reservation_time' => 'Sorry, that time is fully booked for this branch. Please choose another time or date.']];
@@ -516,8 +520,7 @@ function slot_availability(string $branch, string $date): array
     $slots = [];
     for ($h = $b['first_hour']; $h <= $b['last_hour']; $h++) {
         $key = str_pad((string) $h, 2, '0', STR_PAD_LEFT) . ':00';
-        $capacity = cfg('branches')[$branch]['capacity'];
-        $slots[$key] = max(0, $capacity - ($taken[$key] ?? 0));
+        $slots[$key] = max(0, branch_capacity($branch) - ($taken[$key] ?? 0));
     }
-    return ['capacity' => $capacity, 'seats_left' => $slots];
+    return ['capacity' => branch_capacity($branch), 'seats_left' => $slots];
 }
