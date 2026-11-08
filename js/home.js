@@ -30,6 +30,50 @@
     return wrap;
   }
 
+
+  // ---- Hero decoration: bunting, clouds and sparkles are drawn here, sized to the screen ----
+  var NS = 'http://www.w3.org/2000/svg';
+  var FLAGS = ['red', 'yellow', 'cream', 'green', 'blue'];
+  function svgEl(tag, attrs) {
+    var n = document.createElementNS(NS, tag);
+    Object.keys(attrs || {}).forEach(function (k) { n.setAttribute(k, attrs[k]); });
+    return n;
+  }
+  function drawBunting(hero) {
+    var old = hero.querySelector('.art-bunting');
+    var w = Math.max(320, hero.clientWidth), h = 120;
+    var svg = svgEl('svg', { 'class': 'art-bunting', width: w, height: h, viewBox: '0 0 ' + w + ' ' + h, 'aria-hidden': 'true' });
+    var g = svgEl('g', { filter: 'url(#wob)', 'class': 's-ink', 'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' });
+    var segs = Math.max(2, Math.round(w / 520)), sw = w / segs, d = 'M-10 14', n = 0;
+    for (var s = 0; s < segs; s++) {
+      var x0 = s * sw;
+      d += ' Q' + (x0 + sw / 2) + ' 112 ' + (x0 + sw + (s === segs - 1 ? 10 : 0)) + ' 14';
+      var k = Math.max(3, Math.round(sw / 56));
+      for (var i = 1; i < k; i++) {
+        var t = i / k, x = x0 + sw * t, y = 14 + 196 * t * (1 - t);
+        g.appendChild(svgEl('path', { 'class': 'f-' + FLAGS[n++ % FLAGS.length], d: 'M' + (x - 16) + ' ' + (y - 2) + 'L' + (x + 16) + ' ' + (y - 2) + 'L' + x + ' ' + (y + 40) + 'Z' }));
+      }
+    }
+    g.insertBefore(svgEl('path', { d: d, fill: 'none' }), g.firstChild);
+    svg.appendChild(g);
+    if (old) old.replaceWith(svg); else hero.insertBefore(svg, hero.firstChild);
+  }
+  function drawHeroDecor() {
+    var hero = document.querySelector('.hero-art');
+    if (!hero) return;
+    ['c1', 'c2'].forEach(function (c) {
+      var s = svgEl('svg', { 'class': 'art-cloud ' + c, viewBox: '0 0 120 56', 'aria-hidden': 'true' });
+      s.appendChild(svgEl('path', { 'class': 'f-white s-ink', 'stroke-width': 3, 'stroke-linejoin': 'round', d: 'M20 46Q4 46 6 32Q8 20 22 22Q24 6 42 8Q56-2 70 12Q90 6 96 24Q116 24 114 38Q112 48 98 46Z' }));
+      hero.insertBefore(s, hero.firstChild);
+    });
+    ['d1', 'd2', 'd3'].forEach(function (c) {
+      var sp = document.createElement('span'); sp.className = 'doodle ' + c; sp.setAttribute('aria-hidden', 'true'); hero.insertBefore(sp, hero.firstChild);
+    });
+    drawBunting(hero);
+    var timer;
+    window.addEventListener('resize', function () { clearTimeout(timer); timer = setTimeout(function () { drawBunting(hero); }, 150); });
+  }
+
   function renderMenu() {
     var grid = document.getElementById('dish-grid');
     var menu = window.SIFTED_MENU;
@@ -64,6 +108,7 @@
     });
   }
 
+  drawHeroDecor();
   renderMenu();
   renderBranches();
 })();

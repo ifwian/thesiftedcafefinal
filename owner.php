@@ -207,8 +207,8 @@ $icoNav = [
               $names = [1 => 'Mon', 2 => 'Tue', 3 => 'Wed', 4 => 'Thu', 5 => 'Fri', 6 => 'Sat', 7 => 'Sun'];
               $hl = array_map(fn($h) => date('ga', strtotime(sprintf('%02d:00', $h))), array_keys($hrs)); ?>
           <div class="ow-two">
-            <div><h3 class="ow-h3">By day of the week</h3><?= ow_bar_chart(array_values($names), array_values($wd), 'Reservations by weekday', false, 'var(--green)') ?></div>
-            <div><h3 class="ow-h3">By hour of the day</h3><?= ow_bar_chart($hl, array_values($hrs), 'Reservations by hour', false, 'var(--caramel-deep)') ?></div>
+            <div><h3 class="ow-h3">By day of the week</h3><?= ow_bar_chart(array_values($names), array_values($wd), 'Reservations by weekday', false, 'var(--blue-700)') ?></div>
+            <div><h3 class="ow-h3">By hour of the day</h3><?= ow_bar_chart($hl, array_values($hrs), 'Reservations by hour', false, 'var(--blue-700)') ?></div>
           </div>
           <?php endif; ?>
         </section>
@@ -225,7 +225,7 @@ $icoNav = [
         <?= ow_period_bar('payments', $days, $by, true) ?>
         <section class="st-card st-list" aria-labelledby="pa-h">
           <div class="st-card-head"><h2 id="pa-h">Verified payments over time</h2><span class="st-foot">By the day staff verified them</span></div>
-          <?= $pay['verified_period']['amt'] > 0 ? ow_bar_chart($pay['chart_labels'], $pay['chart_values'], 'Verified payment amounts', true, 'var(--green)') : ow_empty('No verified payments in this period', 'Verified amounts appear here after staff verify a payment.') ?>
+          <?= $pay['verified_period']['amt'] > 0 ? ow_bar_chart($pay['chart_labels'], $pay['chart_values'], 'Verified payment amounts', true, 'var(--blue-700)') : ow_empty('No verified payments in this period', 'Verified amounts appear here after staff verify a payment.') ?>
         </section>
 
         <div class="ow-stack ow-gap">
