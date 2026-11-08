@@ -34,6 +34,8 @@
   var header = document.querySelector('.site-header');
   var heroMedia = document.querySelector('.hero-media');
   var slow = document.querySelectorAll('[data-parallax-slow]');
+  var artScene = document.querySelector('.art-scene');
+  var artFloat = document.querySelectorAll('.art-cloud, .doodle');
   var ticking = false;
   function onScroll() {
     var y = window.scrollY || 0;
@@ -41,6 +43,10 @@
     var limit = heroEl ? Math.max(40, heroEl.offsetHeight - header.offsetHeight - 24) : 8;
     header.classList.toggle('is-scrolled', y > limit);
     if (!reduce) {
+      if (y < window.innerHeight * 1.2) {
+        if (artScene) { artScene.style.translate = '0 ' + Math.round(y * 0.05) + 'px'; }
+        artFloat.forEach(function (el) { el.style.translate = '0 ' + Math.round(y * 0.12) + 'px'; });
+      }
       if (heroMedia && y < window.innerHeight * 1.2) { heroMedia.style.transform = 'translate3d(0,' + Math.round(y * 0.18) + 'px,0)'; }
       slow.forEach(function (el) {
         var r = el.getBoundingClientRect();
@@ -83,4 +89,52 @@
       });
     });
   });
+
+  // 6. Smooth scrolling: mouse-wheel scrolling glides to a stop, and in-page links ease to
+  //    their target. Only for mouse/trackpad devices; touch, keyboard, reduced-motion users,
+  //    open dialogs and scrollable boxes (map, lists) keep the browser's own scrolling.
+  if (!reduce && window.matchMedia('(pointer: fine)').matches) {
+    var root = document.documentElement;
+    var current = window.scrollY, target = current, raf = 0;
+    root.classList.add('smooth-js');
+    var maxY = function () { return Math.max(0, root.scrollHeight - window.innerHeight); };
+    var clamp = function (v) { return Math.max(0, Math.min(maxY(), v)); };
+    var tick = function () {
+      var diff = target - current;
+      if (Math.abs(diff) < 0.5) { current = target; window.scrollTo(0, current); raf = 0; return; }
+      current += diff * 0.13;
+      window.scrollTo(0, current);
+      raf = requestAnimationFrame(tick);
+    };
+    var go = function (y) { if (!raf) { current = window.scrollY; } target = clamp(y); if (!raf) { raf = requestAnimationFrame(tick); } };
+    var inScrollBox = function (el) {
+      while (el && el !== document.body && el !== root) {
+        if (el.nodeType === 1) {
+          var oy = getComputedStyle(el).overflowY;
+          if ((oy === 'auto' || oy === 'scroll') && el.scrollHeight > el.clientHeight + 1) { return true; }
+        }
+        el = el.parentNode;
+      }
+      return false;
+    };
+    window.addEventListener('wheel', function (e) {
+      if (e.ctrlKey || e.defaultPrevented || Math.abs(e.deltaX) > Math.abs(e.deltaY) || inScrollBox(e.target) || document.querySelector('dialog[open]')) { return; }
+      e.preventDefault();
+      var d = e.deltaMode === 1 ? e.deltaY * 34 : (e.deltaMode === 2 ? e.deltaY * window.innerHeight : e.deltaY);
+      if (!raf) { current = window.scrollY; target = current; }
+      go(target + d);
+    }, { passive: false });
+    // If something else moved the page (keyboard, scrollbar drag, find), follow it.
+    window.addEventListener('scroll', function () { if (!raf) { current = window.scrollY; target = current; } }, { passive: true });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey || a.getAttribute('href') === '#') { return; }
+      var dest = document.getElementById(decodeURIComponent(a.getAttribute('href').slice(1)));
+      if (!dest) { return; }
+      e.preventDefault();
+      var offset = (header ? header.offsetHeight : 0) + 12;
+      go(dest.getBoundingClientRect().top + window.scrollY - offset);
+      if (history.pushState) { history.pushState(null, '', a.getAttribute('href')); }
+    });
+  }
 })();

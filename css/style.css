@@ -1712,12 +1712,7 @@ body.home .site-header:not(.is-scrolled)::after { display: none; }
 }
 
 /* ---- 9b. Illustrated hero: hand-drawn stall on grainy cream paper ---- */
-.hero-art { position: relative; overflow: hidden; background: radial-gradient(900px 500px at 78% 40%, var(--yellow-100) 0%, rgba(255, 239, 168, 0) 70%), var(--paper); border-bottom: 3px solid var(--blue-700); }
-.hero-art::after { /* film grain over the whole hero */
-  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; mix-blend-mode: multiply; opacity: 0.55;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .15 0 0 0 1.1 -.42'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
-  background-size: 220px 220px;
-}
+.hero-art { position: relative; overflow: hidden; background: radial-gradient(900px 500px at 78% 40%, var(--yellow-100) 0%, rgba(255, 239, 168, 0) 70%), var(--paper); }
 .art-grid { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); align-items: center; gap: clamp(16px, 4vw, 56px); padding-block: clamp(40px, 6vw, 80px) clamp(40px, 6vw, 88px); min-height: min(calc(100svh - var(--header-h)), 760px); }
 .art-copy { max-width: 560px; }
 .art-copy .eyebrow { color: var(--red-700); }
@@ -1783,7 +1778,7 @@ html { scrollbar-color: var(--blue-500) var(--cream); }
 .welcome-photos li::before { content: ""; position: absolute; left: 50%; top: -12px; width: 76px; height: 22px; translate: -50% 0; rotate: -4deg; background: rgba(255, 210, 48, 0.8); border-inline: 2px dashed rgba(15, 42, 130, 0.25); }
 
 /* Menu peek: blue halftone band with colour-block cards */
-.peek { position: relative; padding-block: clamp(80px, 9vw, 130px); background: var(--grain), radial-gradient(rgba(255, 255, 255, 0.16) 1.4px, transparent 1.9px) 0 0 / 16px 16px, var(--blue-500); color: var(--paper-ink); }
+.peek { position: relative; padding-block: clamp(80px, 9vw, 130px); background: radial-gradient(rgba(255, 255, 255, 0.16) 1.4px, transparent 1.9px) 0 0 / 16px 16px, var(--blue-500); color: var(--paper-ink); }
 .peek::before, .peek::after { content: ""; position: absolute; left: 0; right: 0; height: 26px; background: var(--wave-paper) 0 0 / 90px 26px repeat-x; pointer-events: none; }
 .peek::before { top: -1px; }
 .peek::after { bottom: -1px; transform: scaleY(-1); }
@@ -1829,7 +1824,7 @@ html { scrollbar-color: var(--blue-500) var(--cream); }
 .door .link-arrow { display: flex; color: var(--blue-700); }
 
 /* Reserve band: red with halftone, hand-drawn cup */
-.reserve { position: relative; padding-block: clamp(72px, 8vw, 110px); background: var(--grain), radial-gradient(rgba(255, 255, 255, 0.13) 1.4px, transparent 1.9px) 0 0 / 16px 16px, var(--red-500); color: var(--paper-ink); overflow: hidden; }
+.reserve { position: relative; padding-block: clamp(72px, 8vw, 110px); background: radial-gradient(rgba(255, 255, 255, 0.13) 1.4px, transparent 1.9px) 0 0 / 16px 16px, var(--red-500); color: var(--paper-ink); overflow: hidden; }
 .reserve::before { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 26px; background: var(--wave-paper) 0 0 / 90px 26px repeat-x; }
 .reserve-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); align-items: center; gap: clamp(24px, 5vw, 72px); padding-top: var(--sp-5); }
 .reserve h2 { margin-bottom: var(--sp-3); font-family: var(--font-poster); font-weight: 400; font-size: clamp(2rem, 1.3rem + 3vw, 3.4rem); color: var(--sifted-yellow); -webkit-text-stroke: 2px var(--blue-900); paint-order: stroke fill; text-shadow: 4px 4px 0 var(--blue-700); }
@@ -1856,3 +1851,75 @@ html { scrollbar-color: var(--blue-500) var(--cream); }
   .dish-disc { width: 92px; height: 92px; }
 }
 @media (prefers-reduced-motion: reduce) { .dish, .dish:hover, .dish:nth-child(even):hover { transition: none; transform: none; } }
+
+/* ===================================================================
+   11. ILLUSTRATION THEME CLASSES + HERO SCENERY
+   Every drawing reads these variables, so changing a colour token in
+   section 1 recolours the illustrations too (no hex codes inside the SVG).
+   =================================================================== */
+:root {
+  --illus-gold: #F2B84B;
+  --illus-coffee: #7A4A2B;
+  --illus-latte: #D79A5A;
+  --illus-pink: #F7B6C0;
+  --illus-dot: #6F8CE6;
+}
+.f-red { fill: var(--red-500); }       .s-red { stroke: var(--red-500); }
+.f-yellow { fill: var(--sifted-yellow); } .s-yellow { stroke: var(--sifted-yellow); }
+.f-blue { fill: var(--blue-500); }     .s-blue { stroke: var(--blue-500); }
+.f-green { fill: var(--green-500); }   .s-green { stroke: var(--green-500); }
+.f-cream { fill: var(--paper-ink); }   .s-cream { stroke: var(--paper-ink); }
+.f-sun { fill: var(--yellow-200); }
+.f-ink { fill: var(--blue-700); }      .s-ink { stroke: var(--blue-700); }
+.f-gold { fill: var(--illus-gold); }
+.f-coffee { fill: var(--illus-coffee); }
+.f-latte { fill: var(--illus-latte); }
+.f-pink { fill: var(--illus-pink); }
+.f-dot { fill: var(--illus-dot); }
+.f-white { fill: #fff; }
+
+.hero-art { padding-top: 0; }
+.hero-art > svg, .hero-art > .doodle { position: absolute; pointer-events: none; }
+.art-bunting { left: 0; top: 0; width: 100%; height: clamp(96px, 10vw, 140px); z-index: 1; transform-origin: 50% 0; animation: bunting-sway 7s ease-in-out infinite alternate; }
+.art-ground { left: 0; bottom: -2px; width: 100%; height: clamp(64px, 7vw, 100px); z-index: 1; }
+.art-cloud { z-index: 0; opacity: 0.95; animation: cloud-drift 16s ease-in-out infinite alternate; }
+.art-cloud.c1 { left: 3%; top: 26%; }
+.art-cloud.c2 { right: 5%; top: 18%; animation-duration: 20s; animation-direction: alternate-reverse; }
+.doodle { z-index: 1; width: 34px; height: 34px; background: var(--sparkle) center / contain no-repeat; animation: twinkle 3.6s ease-in-out infinite; }
+.doodle.d1 { left: 46%; top: 24%; }
+.doodle.d2 { left: 6%; bottom: 24%; width: 24px; height: 24px; animation-delay: 1.2s; }
+.doodle.d3 { left: 44%; bottom: 18%; width: 20px; height: 20px; animation-delay: 2.2s; }
+.art-grid { padding-block: clamp(96px, 11vw, 150px) clamp(88px, 9vw, 130px); }
+@keyframes bunting-sway { from { transform: rotate(-0.35deg); } to { transform: rotate(0.35deg); } }
+@keyframes cloud-drift { from { transform: translateX(-14px); } to { transform: translateX(22px); } }
+@keyframes twinkle { 0%, 100% { transform: scale(0.85) rotate(0deg); opacity: 0.85; } 50% { transform: scale(1.15) rotate(12deg); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .art-bunting, .art-cloud, .doodle { animation: none; } }
+@media (max-width: 900px) {
+  .art-cloud.c1 { top: 15%; } .art-cloud.c2 { display: none; }
+  .doodle.d1, .doodle.d3 { display: none; }
+}
+
+/* ===================================================================
+   12. SMOOTH MOTION
+   =================================================================== */
+html.smooth-js { scroll-behavior: auto; }            /* js/motion.js eases the scrolling itself */
+@view-transition { navigation: auto; }               /* soft cross-fade between pages (Chromium) */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 260ms; animation-timing-function: var(--ease); }
+
+/* Reveal: a longer, softer settle with a hint of scale */
+.js .reveal { opacity: 0; translate: 0 32px; scale: 0.975; transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--r, 0) * 70ms), translate 900ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--r, 0) * 70ms), scale 900ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--r, 0) * 70ms); }
+.js .reveal.is-in { opacity: 1; translate: 0 0; scale: 1; }
+/* Cards keep their hover transitions next to the reveal ones */
+.js .dish.reveal, .js li.reveal > .dish { transition: transform 260ms var(--ease), box-shadow 260ms var(--ease); }
+.js .door.reveal { transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--r, 0) * 70ms), translate 900ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--r, 0) * 70ms), scale 900ms cubic-bezier(0.16, 1, 0.3, 1) calc(var(--r, 0) * 70ms), box-shadow 260ms var(--ease); }
+
+/* Interactions glide instead of snapping */
+.btn, .link-arrow, .site-nav a, .chip, .dish, .door, .quick-card, .branch-card { transition-timing-function: var(--ease); }
+.btn { transition-duration: 220ms; }
+.hero-art .btn-primary:hover { transform: translateY(-2px); }
+.art-scene { will-change: translate; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; translate: none; scale: none; }
+  html.smooth-js { scroll-behavior: auto; }
+  .art-scene { will-change: auto; }
+}

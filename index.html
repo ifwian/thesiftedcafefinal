@@ -45,8 +45,11 @@
 
   <main id="main">
 
-    <!-- HERO: hand-drawn illustration -->
+    <!-- HERO: hand-drawn illustration (colours come from the CSS tokens, not from the SVG) -->
     <section id="top" class="hero-art" aria-labelledby="hero-title">
+      <svg class="art-bunting" viewBox="0 0 1440 140" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><g filter="url(#wob)" class="s-ink" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M-20 16 Q360 120 720 22 Q1080 120 1460 16" fill="none"/><path class="f-yellow" d="M39 33 L73 33 L56 77Z"/><path class="f-cream" d="M114 48 L148 48 L131 92Z"/><path class="f-green" d="M189 58 L223 58 L206 102Z"/><path class="f-blue" d="M264 65 L298 65 L281 109Z"/><path class="f-red" d="M338 68 L372 68 L355 112Z"/><path class="f-yellow" d="M412 66 L446 66 L429 110Z"/><path class="f-cream" d="M485 61 L519 61 L502 105Z"/><path class="f-green" d="M558 51 L592 51 L575 95Z"/><path class="f-blue" d="M631 38 L665 38 L648 82Z"/><path class="f-red" d="M775 33 L809 33 L792 77Z"/><path class="f-yellow" d="M848 48 L882 48 L865 92Z"/><path class="f-cream" d="M921 58 L955 58 L938 102Z"/><path class="f-green" d="M994 65 L1028 65 L1011 109Z"/><path class="f-blue" d="M1068 68 L1102 68 L1085 112Z"/><path class="f-red" d="M1142 66 L1176 66 L1159 110Z"/><path class="f-yellow" d="M1217 61 L1251 61 L1234 105Z"/><path class="f-cream" d="M1292 51 L1326 51 L1309 95Z"/><path class="f-green" d="M1367 38 L1401 38 L1384 82Z"/></g></svg>
+      <svg class="art-cloud c1" viewBox="0 0 120 56" width="110" aria-hidden="true"><path class="f-white s-ink" stroke-width="3" stroke-linejoin="round" d="M20 46 Q4 46 6 32 Q8 20 22 22 Q24 6 42 8 Q56 -2 70 12 Q90 6 96 24 Q116 24 114 38 Q112 48 98 46Z"/></svg><svg class="art-cloud c2" viewBox="0 0 120 56" width="84" aria-hidden="true"><path class="f-white s-ink" stroke-width="3" stroke-linejoin="round" d="M20 46 Q4 46 6 32 Q8 20 22 22 Q24 6 42 8 Q56 -2 70 12 Q90 6 96 24 Q116 24 114 38 Q112 48 98 46Z"/></svg>
+      <span class="doodle d1" aria-hidden="true"></span><span class="doodle d2" aria-hidden="true"></span><span class="doodle d3" aria-hidden="true"></span>
       <div class="container art-grid">
         <div class="art-copy">
           <span class="eyebrow eyebrow-rule hero-in" style="--d:0">Cafe &amp; bakery &middot; Calamba &middot; Cabuyao</span>
@@ -65,44 +68,44 @@
           <svg class="scene" viewBox="0 0 600 540" role="img" aria-label="Illustration of a cafe stall with a striped awning, iced coffee, a croissant and plants">
 <defs>
 <filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.022" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="5"/></filter>
-<pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.8" fill="#6F8CE6"/></pattern>
+<pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle class="f-dot" cx="6" cy="6" r="1.8"/></pattern>
 </defs>
-<g filter="url(#wob)" stroke="#0F2A82" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
-<circle cx="300" cy="255" r="215" fill="#1A42C4"/><circle cx="300" cy="255" r="215" fill="url(#dots)" stroke="none"/>
-<path d="M40 470 C150 440 450 440 570 470 C560 505 420 525 300 525 C170 525 50 505 40 470Z" fill="#FFE680"/>
-<path d="M10 70 Q300 150 590 70" fill="none"/><path d="M51 82 L85 82 L68 124Z" fill="#C8232B"/><path d="M109 94 L143 94 L126 136Z" fill="#FFD230"/><path d="M167 102 L201 102 L184 144Z" fill="#FFF4D6"/><path d="M225 106 L259 106 L242 148Z" fill="#3A8A42"/><path d="M283 108 L317 108 L300 150Z" fill="#1A42C4"/><path d="M341 106 L375 106 L358 148Z" fill="#C8232B"/><path d="M399 102 L433 102 L416 144Z" fill="#FFD230"/><path d="M457 94 L491 94 L474 136Z" fill="#FFF4D6"/><path d="M515 82 L549 82 L532 124Z" fill="#3A8A42"/>
-<rect x="170" y="175" width="260" height="190" fill="#FFF4D6"/>
+<g class="s-ink" filter="url(#wob)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
+<circle class="f-blue" cx="300" cy="255" r="215"/><circle cx="300" cy="255" r="215" fill="url(#dots)" stroke="none"/>
+<path class="f-sun" d="M40 470 C150 440 450 440 570 470 C560 505 420 525 300 525 C170 525 50 505 40 470Z"/>
+<rect class="f-cream" x="170" y="175" width="260" height="190"/>
 <path d="M300 150 L300 205" fill="none" stroke-width="0"/>
-<rect x="195" y="190" width="70" height="52" rx="4" fill="#0F2A82"/><path d="M207 205 H253 M207 217 H240 M207 229 H248" stroke="#FFF4D6" stroke-width="3" fill="none"/>
-<circle cx="345" cy="236" r="16" fill="#FFD230"/><path d="M345 205 V220" fill="none"/>
+<rect class="f-ink" x="195" y="190" width="70" height="52" rx="4"/><path class="s-cream" d="M207 205 H253 M207 217 H240 M207 229 H248" stroke-width="3" fill="none"/>
+<circle class="f-yellow" cx="345" cy="236" r="16"/><path d="M345 205 V220" fill="none"/>
 <line x1="165" y1="175" x2="165" y2="470" stroke-width="6"/><line x1="435" y1="175" x2="435" y2="470" stroke-width="6"/>
-<rect x="125" y="136" width="350" height="16" rx="5" fill="#1A42C4"/>
-<path d="M130.0 150 L172.5 150 L157.5 215 A23.75 16 0 0 1 110.0 215Z" fill="#C8232B"/><path d="M172.5 150 L215.0 150 L205.0 215 A23.75 16 0 0 1 157.5 215Z" fill="#FFF4D6"/><path d="M215.0 150 L257.5 150 L252.5 215 A23.75 16 0 0 1 205.0 215Z" fill="#C8232B"/><path d="M257.5 150 L300.0 150 L300.0 215 A23.75 16 0 0 1 252.5 215Z" fill="#FFF4D6"/><path d="M300.0 150 L342.5 150 L347.5 215 A23.75 16 0 0 1 300.0 215Z" fill="#C8232B"/><path d="M342.5 150 L385.0 150 L395.0 215 A23.75 16 0 0 1 347.5 215Z" fill="#FFF4D6"/><path d="M385.0 150 L427.5 150 L442.5 215 A23.75 16 0 0 1 395.0 215Z" fill="#C8232B"/><path d="M427.5 150 L470.0 150 L490.0 215 A23.75 16 0 0 1 442.5 215Z" fill="#FFF4D6"/>
+<rect class="f-blue" x="125" y="136" width="350" height="16" rx="5"/>
+<path class="f-red" d="M130.0 150 L172.5 150 L157.5 215 A23.75 16 0 0 1 110.0 215Z"/><path class="f-cream" d="M172.5 150 L215.0 150 L205.0 215 A23.75 16 0 0 1 157.5 215Z"/><path class="f-red" d="M215.0 150 L257.5 150 L252.5 215 A23.75 16 0 0 1 205.0 215Z"/><path class="f-cream" d="M257.5 150 L300.0 150 L300.0 215 A23.75 16 0 0 1 252.5 215Z"/><path class="f-red" d="M300.0 150 L342.5 150 L347.5 215 A23.75 16 0 0 1 300.0 215Z"/><path class="f-cream" d="M342.5 150 L385.0 150 L395.0 215 A23.75 16 0 0 1 347.5 215Z"/><path class="f-red" d="M385.0 150 L427.5 150 L442.5 215 A23.75 16 0 0 1 395.0 215Z"/><path class="f-cream" d="M427.5 150 L470.0 150 L490.0 215 A23.75 16 0 0 1 442.5 215Z"/>
 <path d="M270 215 L270 232 M330 215 L330 232" fill="none"/>
-<rect x="235" y="230" width="130" height="40" rx="9" fill="#1A42C4"/>
-<text x="300" y="257" text-anchor="middle" class="sc-text" fill="#FFF4D6" stroke="none">the sifted</text>
-<rect x="150" y="362" width="300" height="100" fill="#FFD230"/>
+<rect class="f-blue" x="235" y="230" width="130" height="40" rx="9"/>
+<text x="300" y="257" text-anchor="middle" class="f-cream sc-text" stroke="none">the sifted</text>
+<rect class="f-yellow" x="150" y="362" width="300" height="100"/>
 <path d="M180 362 V462 M240 362 V462 M300 362 V462 M360 362 V462 M420 362 V462" stroke-width="2" stroke-opacity=".35" fill="none"/>
-<rect x="215" y="394" width="170" height="36" rx="18" fill="#FFF4D6"/>
-<text x="300" y="418" text-anchor="middle" class="sc-text sm" fill="#C8232B" stroke="none">coffee &amp; bakery</text>
-<rect x="138" y="346" width="324" height="18" rx="4" fill="#C8232B"/>
-<rect x="176" y="296" width="82" height="50" rx="5" fill="#C8232B"/><rect x="170" y="286" width="94" height="12" rx="4" fill="#0F2A82"/><circle cx="198" cy="316" r="7" fill="#FFD230"/><circle cx="236" cy="316" r="7" fill="#FFD230"/><path d="M208 346 V334 H226 V346" fill="#FFF4D6"/>
-<path d="M284 296 L312 296 L308 345 L288 345Z" fill="#fff" fill-opacity=".75"/><path d="M286 318 L310 318 L308 345 L288 345Z" fill="#D79A5A"/><path d="M286 318 L310 318 L309.4 328 L286.6 328Z" fill="#FFF4D6"/><path d="M282 296 Q298 282 314 296Z" fill="#fff" fill-opacity=".85"/><path d="M300 288 L307 262" stroke="#C8232B" stroke-width="4" fill="none"/><path d="M326 296 L354 296 L350 345 L330 345Z" fill="#fff" fill-opacity=".75"/><path d="M328 318 L352 318 L350 345 L330 345Z" fill="#D79A5A"/><path d="M328 318 L352 318 L351.4 328 L328.6 328Z" fill="#FFF4D6"/><path d="M324 296 Q340 282 356 296Z" fill="#fff" fill-opacity=".85"/><path d="M342 288 L349 262" stroke="#C8232B" stroke-width="4" fill="none"/>
-<ellipse cx="400" cy="344" rx="34" ry="6" fill="#fff"/>
-<path d="M366 340 Q372 306 400 304 Q428 306 434 340 Q416 328 400 330 Q384 328 366 340Z" fill="#F2B84B"/><path d="M382 316 Q386 328 384 333 M400 310 V329 M418 316 Q414 328 416 333" fill="none" stroke-width="2.5"/>
-<path d="M62 470 L72 428 H128 L138 470Z" fill="#C8232B"/><rect x="66" y="424" width="68" height="12" rx="3" fill="#C8232B"/>
-<g transform="translate(100 424) rotate(-38)"><path d="M0 0 C26 -33.0 26 -88.0 0 -110 C-26 -88.0 -26 -33.0 0 0Z" fill="#3A8A42"/><path d="M0 -4 L0 -88.0" fill="none" stroke-width="2"/></g><g transform="translate(100 424) rotate(0)"><path d="M0 0 C30 -42.0 30 -112.0 0 -140 C-30 -112.0 -30 -42.0 0 0Z" fill="#3A8A42"/><path d="M0 -4 L0 -112.0" fill="none" stroke-width="2"/></g><g transform="translate(100 424) rotate(36)"><path d="M0 0 C26 -33.0 26 -88.0 0 -110 C-26 -88.0 -26 -33.0 0 0Z" fill="#3A8A42"/><path d="M0 -4 L0 -88.0" fill="none" stroke-width="2"/></g><g transform="translate(100 424) rotate(-70)"><path d="M0 0 C22 -24.0 22 -64.0 0 -80 C-22 -64.0 -22 -24.0 0 0Z" fill="#3A8A42"/><path d="M0 -4 L0 -64.0" fill="none" stroke-width="2"/></g><g transform="translate(100 424) rotate(68)"><path d="M0 0 C22 -24.0 22 -64.0 0 -80 C-22 -64.0 -22 -24.0 0 0Z" fill="#3A8A42"/><path d="M0 -4 L0 -64.0" fill="none" stroke-width="2"/></g>
-<path d="M492 470 L500 440 H540 L548 470Z" fill="#1A42C4"/>
-<path d="M520 440 V392" fill="none" stroke-width="3.5"/><g transform="translate(520 414) rotate(-40)"><path d="M0 0 C14 -13.2 14 -35.2 0 -44 C-14 -35.2 -14 -13.2 0 0Z" fill="#3A8A42"/><path d="M0 -4 L0 -35.2" fill="none" stroke-width="2"/></g><g transform="translate(520 414) rotate(40)"><path d="M0 0 C14 -13.2 14 -35.2 0 -44 C-14 -35.2 -14 -13.2 0 0Z" fill="#3A8A42"/><path d="M0 -4 L0 -35.2" fill="none" stroke-width="2"/></g>
-<circle cx="520" cy="384" r="12" fill="#FFD230"/><circle cx="520" cy="384" r="4" fill="#C8232B"/><circle cx="498" cy="404" r="9" fill="#C8232B"/><circle cx="498" cy="404" r="3" fill="#FFD230"/><circle cx="544" cy="406" r="9" fill="#FFF4D6"/><circle cx="544" cy="406" r="3" fill="#FFD230"/>
-<path d="M148 456 Q158 488 205 480" fill="none" stroke="#0F2A82" stroke-width="0"/>
-<path transform="translate(70 118) scale(1.8333333333333333)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" fill="#FFD230" stroke-linejoin="round"/><path transform="translate(520 150) scale(1.4166666666666667)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" fill="#FFD230" stroke-linejoin="round"/><path transform="translate(36 300) scale(0.9166666666666666)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" fill="#FFD230" stroke-linejoin="round"/><path transform="translate(560 300) scale(0.8333333333333334)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" fill="#FFD230" stroke-linejoin="round"/>
-<path d="M470 84 q8 -10 16 0 t16 0 t16 0" fill="none" stroke="#3A8A42" stroke-width="4"/>
-<circle cx="120" cy="205" r="6" fill="#C8232B"/><circle cx="548" cy="215" r="6" fill="#FFD230"/><circle cx="52" cy="380" r="5" fill="#3A8A42"/><circle cx="575" cy="380" r="5" fill="#FFF4D6"/>
+<rect class="f-cream" x="215" y="394" width="170" height="36" rx="18"/>
+<text x="300" y="418" text-anchor="middle" class="f-red sc-text sm" stroke="none">coffee &amp; bakery</text>
+<rect class="f-red" x="138" y="346" width="324" height="18" rx="4"/>
+<rect class="f-red" x="176" y="296" width="82" height="50" rx="5"/><rect class="f-ink" x="170" y="286" width="94" height="12" rx="4"/><circle class="f-yellow" cx="198" cy="316" r="7"/><circle class="f-yellow" cx="236" cy="316" r="7"/><path class="f-cream" d="M208 346 V334 H226 V346"/>
+<path class="f-white" d="M284 296 L312 296 L308 345 L288 345Z" fill-opacity=".75"/><path class="f-latte" d="M286 318 L310 318 L308 345 L288 345Z"/><path class="f-cream" d="M286 318 L310 318 L309.4 328 L286.6 328Z"/><path class="f-white" d="M282 296 Q298 282 314 296Z" fill-opacity=".85"/><path class="s-red" d="M300 288 L307 262" stroke-width="4" fill="none"/><path class="f-white" d="M326 296 L354 296 L350 345 L330 345Z" fill-opacity=".75"/><path class="f-latte" d="M328 318 L352 318 L350 345 L330 345Z"/><path class="f-cream" d="M328 318 L352 318 L351.4 328 L328.6 328Z"/><path class="f-white" d="M324 296 Q340 282 356 296Z" fill-opacity=".85"/><path class="s-red" d="M342 288 L349 262" stroke-width="4" fill="none"/>
+<ellipse class="f-white" cx="400" cy="344" rx="34" ry="6"/>
+<path class="f-gold" d="M366 340 Q372 306 400 304 Q428 306 434 340 Q416 328 400 330 Q384 328 366 340Z"/><path d="M382 316 Q386 328 384 333 M400 310 V329 M418 316 Q414 328 416 333" fill="none" stroke-width="2.5"/>
+<path class="f-red" d="M62 470 L72 428 H128 L138 470Z"/><rect class="f-red" x="66" y="424" width="68" height="12" rx="3"/>
+<g transform="translate(100 424) rotate(-38)"><path class="f-green" d="M0 0 C26 -33.0 26 -88.0 0 -110 C-26 -88.0 -26 -33.0 0 0Z"/><path d="M0 -4 L0 -88.0" fill="none" stroke-width="2"/></g><g transform="translate(100 424) rotate(0)"><path class="f-green" d="M0 0 C30 -42.0 30 -112.0 0 -140 C-30 -112.0 -30 -42.0 0 0Z"/><path d="M0 -4 L0 -112.0" fill="none" stroke-width="2"/></g><g transform="translate(100 424) rotate(36)"><path class="f-green" d="M0 0 C26 -33.0 26 -88.0 0 -110 C-26 -88.0 -26 -33.0 0 0Z"/><path d="M0 -4 L0 -88.0" fill="none" stroke-width="2"/></g><g transform="translate(100 424) rotate(-70)"><path class="f-green" d="M0 0 C22 -24.0 22 -64.0 0 -80 C-22 -64.0 -22 -24.0 0 0Z"/><path d="M0 -4 L0 -64.0" fill="none" stroke-width="2"/></g><g transform="translate(100 424) rotate(68)"><path class="f-green" d="M0 0 C22 -24.0 22 -64.0 0 -80 C-22 -64.0 -22 -24.0 0 0Z"/><path d="M0 -4 L0 -64.0" fill="none" stroke-width="2"/></g>
+<path class="f-blue" d="M492 470 L500 440 H540 L548 470Z"/>
+<path d="M520 440 V392" fill="none" stroke-width="3.5"/><g transform="translate(520 414) rotate(-40)"><path class="f-green" d="M0 0 C14 -13.2 14 -35.2 0 -44 C-14 -35.2 -14 -13.2 0 0Z"/><path d="M0 -4 L0 -35.2" fill="none" stroke-width="2"/></g><g transform="translate(520 414) rotate(40)"><path class="f-green" d="M0 0 C14 -13.2 14 -35.2 0 -44 C-14 -35.2 -14 -13.2 0 0Z"/><path d="M0 -4 L0 -35.2" fill="none" stroke-width="2"/></g>
+<circle class="f-yellow" cx="520" cy="384" r="12"/><circle class="f-red" cx="520" cy="384" r="4"/><circle class="f-red" cx="498" cy="404" r="9"/><circle class="f-yellow" cx="498" cy="404" r="3"/><circle class="f-cream" cx="544" cy="406" r="9"/><circle class="f-yellow" cx="544" cy="406" r="3"/>
+<path class="s-ink" d="M148 456 Q158 488 205 480" fill="none" stroke-width="0"/>
+<path class="f-yellow" transform="translate(70 118) scale(1.8333333333333333)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" stroke-linejoin="round"/><path class="f-yellow" transform="translate(520 150) scale(1.4166666666666667)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" stroke-linejoin="round"/><path class="f-yellow" transform="translate(36 300) scale(0.9166666666666666)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" stroke-linejoin="round"/><path class="f-yellow" transform="translate(560 300) scale(0.8333333333333334)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" stroke-linejoin="round"/>
+<path class="s-green" d="M470 84 q8 -10 16 0 t16 0 t16 0" fill="none" stroke-width="4"/>
+<circle class="f-red" cx="120" cy="205" r="6"/><circle class="f-yellow" cx="548" cy="215" r="6"/><circle class="f-green" cx="52" cy="380" r="5"/><circle class="f-cream" cx="575" cy="380" r="5"/>
 </g></svg>
           <span class="art-sticker" aria-hidden="true">the sifted<br>passion &amp; community</span>
         </div>
       </div>
+      <svg class="art-ground" viewBox="0 0 1440 100" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><g filter="url(#wob)" class="s-ink" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path class="f-sun" d="M-10 38 Q90 10 180 38 T360 38 T540 38 T720 38 T900 38 T1080 38 T1260 38 T1450 38 V104 H-10Z"/><g stroke-width="0"><circle class="f-red" cx="493" cy="71" r="3"/><circle class="f-blue" cx="821" cy="82" r="3"/><circle class="f-green" cx="194" cy="56" r="3"/><circle class="f-yellow" cx="832" cy="70" r="3"/><circle class="f-cream" cx="464" cy="75" r="4"/><circle class="f-red" cx="363" cy="58" r="4"/><circle class="f-blue" cx="449" cy="53" r="5"/><circle class="f-green" cx="543" cy="69" r="3"/><circle class="f-yellow" cx="347" cy="71" r="4"/><circle class="f-cream" cx="1294" cy="75" r="3"/><circle class="f-red" cx="1250" cy="73" r="5"/><circle class="f-blue" cx="804" cy="84" r="3"/><circle class="f-green" cx="374" cy="67" r="4"/><circle class="f-yellow" cx="583" cy="57" r="5"/><circle class="f-cream" cx="624" cy="52" r="4"/><circle class="f-red" cx="1182" cy="71" r="5"/><circle class="f-blue" cx="409" cy="78" r="4"/><circle class="f-green" cx="1236" cy="70" r="4"/><circle class="f-yellow" cx="934" cy="62" r="3"/><circle class="f-cream" cx="634" cy="68" r="3"/><circle class="f-red" cx="176" cy="54" r="4"/><circle class="f-blue" cx="1292" cy="69" r="5"/><circle class="f-green" cx="1104" cy="82" r="5"/><circle class="f-yellow" cx="712" cy="61" r="5"/><circle class="f-cream" cx="410" cy="56" r="4"/><circle class="f-red" cx="425" cy="80" r="4"/><circle class="f-blue" cx="386" cy="74" r="4"/><circle class="f-green" cx="1215" cy="72" r="5"/><circle class="f-yellow" cx="1153" cy="64" r="4"/><circle class="f-cream" cx="216" cy="55" r="5"/><circle class="f-red" cx="478" cy="69" r="5"/><circle class="f-blue" cx="1270" cy="67" r="3"/><circle class="f-green" cx="688" cy="63" r="4"/><circle class="f-yellow" cx="950" cy="53" r="3"/></g></g></svg>
     </section>
 
     <!-- WELCOME: a quiet photo strip and a short index of the site -->
@@ -135,7 +138,7 @@
           <h2 id="peek-title">What are we sipping today?</h2>
           <p>Pick a corner of the menu and see every item with its sizes and prices.</p>
         </div>
-        <ul class="dish-grid"><li data-reveal><a class="dish dish-red" href="menu.html"><span class="dish-disc"><svg class="dish-ic" viewBox="0 0 100 100" aria-hidden="true"><g filter="url(#wob)" stroke="#0F2A82" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" fill="none"><ellipse cx="46" cy="85" rx="32" ry="6" fill="#FFD230"/><path d="M20 42 H70 V62 Q70 82 45 82 Q20 82 20 62Z" fill="#FFF4D6"/><path d="M70 48 Q90 46 87 62 Q84 74 67 70" /><path d="M20 52 H70 V62 Q70 82 45 82 Q20 82 20 62Z" fill="#D79A5A"/><path d="M34 34 q-7 -8 0 -15 M48 34 q-7 -8 0 -15 M62 34 q-7 -8 0 -15" stroke="#C8232B"/></g></svg></span><strong>Coffee</strong><span class="dish-sub">Double-shot espresso, hot or iced.</span></a></li><li data-reveal><a class="dish dish-green" href="menu.html"><span class="dish-disc"><svg class="dish-ic" viewBox="0 0 100 100" aria-hidden="true"><g filter="url(#wob)" stroke="#0F2A82" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" fill="none"><path d="M28 34 H68 L63 88 H33Z" fill="#FFF4D6"/><path d="M31 56 H65 L63 88 H33Z" fill="#3A8A42"/><path d="M52 34 L64 8" stroke="#C8232B" stroke-width="6"/><rect x="40" y="42" width="11" height="11" rx="3" fill="#fff" fill-opacity=".8" transform="rotate(-12 45 47)"/><rect x="54" y="62" width="10" height="10" rx="3" fill="#fff" fill-opacity=".6" transform="rotate(10 59 67)"/></g></svg></span><strong>Non-Coffee</strong><span class="dish-sub">Matcha, cocoa and more, no espresso needed.</span></a></li><li data-reveal><a class="dish dish-blue" href="menu.html"><span class="dish-disc"><svg class="dish-ic" viewBox="0 0 100 100" aria-hidden="true"><g filter="url(#wob)" stroke="#0F2A82" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" fill="none"><path d="M28 40 H68 L63 88 H33Z" fill="#FFF4D6"/><path d="M30 58 H66 L63 88 H33Z" fill="#D79A5A"/><path d="M30 58 H66 L65 66 H31Z" fill="#FFF4D6"/><path d="M26 40 Q48 18 70 40Z" fill="#fff" fill-opacity=".85"/><path d="M50 26 L56 6" stroke="#C8232B" stroke-width="5"/><path transform="translate(60 4) scale(1.6)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" fill="#FFD230" stroke-width="2"/></g></svg></span><strong>Specialty Drinks</strong><span class="dish-sub">Cold brews, tonics and signature creations.</span></a></li><li data-reveal><a class="dish dish-yellow" href="menu.html"><span class="dish-disc"><svg class="dish-ic" viewBox="0 0 100 100" aria-hidden="true"><g filter="url(#wob)" stroke="#0F2A82" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" fill="none"><ellipse cx="50" cy="84" rx="38" ry="6" fill="#FFF4D6"/><path d="M12 72 Q16 34 50 30 Q84 34 88 72 Q68 58 50 60 Q32 58 12 72Z" fill="#F2B84B"/><path d="M34 44 Q40 58 36 64 M50 36 V58 M66 44 Q60 58 64 64" stroke-width="3"/></g></svg></span><strong>Pastries</strong><span class="dish-sub">Something warm to go with your cup.</span></a></li><li data-reveal><a class="dish dish-blue" href="menu.html"><span class="dish-disc"><svg class="dish-ic" viewBox="0 0 100 100" aria-hidden="true"><g filter="url(#wob)" stroke="#0F2A82" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" fill="none"><path d="M14 62 L84 48 V84 H14Z" fill="#FFF4D6"/><path d="M14 62 L84 48 L70 30 L26 40Z" fill="#F7B6C0"/><path d="M14 72 L84 60" stroke-width="3"/><circle cx="52" cy="30" r="8" fill="#C8232B"/><path d="M52 22 q4 -8 10 -10" /></g></svg></span><strong>Desserts</strong><span class="dish-sub">A sweet finish to any visit.</span></a></li><li data-reveal><a class="dish dish-red" href="menu.html"><span class="dish-disc"><svg class="dish-ic" viewBox="0 0 100 100" aria-hidden="true"><g filter="url(#wob)" stroke="#0F2A82" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round" fill="none"><path d="M18 48 Q50 8 82 48Z" fill="#F2B84B"/><path d="M16 54 q8 9 17 0 t17 0 t17 0 t17 0 V60 H16Z" fill="#3A8A42"/><rect x="18" y="60" width="64" height="12" rx="6" fill="#7A4A2B"/><rect x="20" y="74" width="60" height="12" rx="6" fill="#F2B84B"/><circle cx="40" cy="34" r="2" fill="#0F2A82" stroke="none"/><circle cx="58" cy="30" r="2" fill="#0F2A82" stroke="none"/></g></svg></span><strong>Savory Bites</strong><span class="dish-sub">For when you want something filling.</span></a></li></ul>
+        <ul class="dish-grid" id="dish-grid"></ul>
         <p class="peek-more" data-reveal><a class="btn btn-primary" href="menu.html">See the full menu</a></p>
       </div>
     </section>
@@ -147,22 +150,7 @@
           <span class="eyebrow eyebrow-rule">Find us</span>
           <h2 id="doors-title">Two doors in Laguna.</h2>
         </div>
-        <div class="door-grid">
-          <article class="door door-blue" data-reveal>
-            <p class="door-no" aria-hidden="true">01</p>
-            <h3>Calamba</h3>
-            <address>Unit 2, Pabs2men Building, Chipeco Ave, Brgy.&nbsp;3, Calamba, 4027 Laguna</address>
-            <p class="door-hours"><strong>Every day</strong> 10:00 AM &ndash; 10:00 PM</p>
-            <a class="link-arrow" href="visit.html">Directions &amp; map <span aria-hidden="true">&rarr;</span></a>
-          </article>
-          <article class="door door-yellow" data-reveal>
-            <p class="door-no" aria-hidden="true">02</p>
-            <h3>Cabuyao</h3>
-            <address>2nd Floor, Southwalk Commercial Space, South Point, Pulo, Cabuyao, Laguna 4025</address>
-            <p class="door-hours"><strong>Every day</strong> 9:00 AM &ndash; 9:00 PM</p>
-            <a class="link-arrow" href="visit.html">Directions &amp; map <span aria-hidden="true">&rarr;</span></a>
-          </article>
-        </div>
+        <div class="door-grid" id="door-grid"></div>
       </div>
     </section>
 
@@ -175,14 +163,14 @@
           <p>Log in to reserve a table and follow your reservations, so your spot is waiting when you arrive.</p>
           <div class="reserve-actions"><a class="btn btn-primary" href="login.html">Reserve a table</a><a class="link-arrow" href="signup.html">Create an account <span aria-hidden="true">&rarr;</span></a></div>
         </div>
-        <div class="reserve-art-wrap" data-reveal><svg class="reserve-art" viewBox="0 0 260 300" aria-hidden="true"><g filter="url(#wob)" stroke="#0F2A82" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
-<ellipse cx="130" cy="278" rx="100" ry="14" fill="#FFD230"/>
-<path d="M62 92 H198 L184 262 H76Z" fill="#FFF4D6"/><path d="M68 150 H192 L184 262 H76Z" fill="#D79A5A"/><path d="M66 118 H194 L192 150 H68Z" fill="#FFF4D6"/>
-<path d="M54 92 Q130 28 206 92Z" fill="#fff" fill-opacity=".9"/><path d="M138 52 L168 6" stroke="#C8232B" stroke-width="10" fill="none"/>
-<rect x="96" y="176" width="34" height="34" rx="9" fill="#fff" fill-opacity=".75" transform="rotate(-10 113 193)"/><rect x="138" y="204" width="30" height="30" rx="9" fill="#fff" fill-opacity=".6" transform="rotate(12 153 219)"/>
-<rect x="88" y="222" width="84" height="26" rx="5" fill="#C8232B"/><text x="130" y="241" text-anchor="middle" class="sc-text sm" fill="#FFF4D6" stroke="none">the sifted</text>
-<path transform="translate(14 40) scale(3)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" fill="#FFD230" stroke-width="1.4"/>
-<path transform="translate(206 150) scale(1.7)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" fill="#FFD230" stroke-width="2"/>
+        <div class="reserve-art-wrap" data-reveal><svg class="reserve-art" viewBox="0 0 260 300" aria-hidden="true"><g class="s-ink" filter="url(#wob)" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+<ellipse class="f-yellow" cx="130" cy="278" rx="100" ry="14"/>
+<path class="f-cream" d="M62 92 H198 L184 262 H76Z"/><path class="f-latte" d="M68 150 H192 L184 262 H76Z"/><path class="f-cream" d="M66 118 H194 L192 150 H68Z"/>
+<path class="f-white" d="M54 92 Q130 28 206 92Z" fill-opacity=".9"/><path class="s-red" d="M138 52 L168 6" stroke-width="10" fill="none"/>
+<rect class="f-white" x="96" y="176" width="34" height="34" rx="9" fill-opacity=".75" transform="rotate(-10 113 193)"/><rect class="f-white" x="138" y="204" width="30" height="30" rx="9" fill-opacity=".6" transform="rotate(12 153 219)"/>
+<rect class="f-red" x="88" y="222" width="84" height="26" rx="5"/><text x="130" y="241" text-anchor="middle" class="f-cream sc-text sm" stroke="none">the sifted</text>
+<path class="f-yellow" transform="translate(14 40) scale(3)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" stroke-width="1.4"/>
+<path class="f-yellow" transform="translate(206 150) scale(1.7)" d="M12 .8C13 8 16 11 23.2 12 16 13 13 16 12 23.2 11 16 8 13 .8 12 8 11 11 8 12 .8Z" stroke-width="2"/>
 </g></svg></div>
       </div>
     </section>
@@ -217,6 +205,9 @@
   <script src="js/config.js"></script>
   <script src="js/shared.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/menu-data.js"></script>
+  <script src="js/branches.js"></script>
+  <script src="js/home.js"></script>
   <script src="js/motion.js"></script>
 </body>
 </html>
